@@ -19,7 +19,7 @@ final readonly class Client
         )->json();
 
         if (is_array($response) === false) {
-            throw new InvalidTelegramResponse();
+            throw new InvalidTelegramResponse;
         }
 
         return $response;
@@ -27,6 +27,6 @@ final readonly class Client
 
     private function getUrl(string $method): string
     {
-        return 'https://api.telegram.org/bot' . config('telegram.bot-token') . "/$method";
+        return 'https://api.telegram.org/bot'.config('telegram.bot-token')."/$method";
     }
 }

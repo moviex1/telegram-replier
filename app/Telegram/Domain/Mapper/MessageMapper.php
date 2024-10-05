@@ -21,7 +21,7 @@ final readonly class MessageMapper
 
     public function toModel(MessageDTO $messageDTO): Message
     {
-        $message = new Message();
+        $message = new Message;
 
         $message->message_id = $messageDTO->messageId;
         $message->chat_id = $messageDTO->chatId;

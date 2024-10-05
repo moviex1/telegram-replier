@@ -22,7 +22,7 @@ use OpenApi\Attributes as OA;
         new OA\Response(response: 200, description: 'OK', content: new OA\JsonContent(
             properties: [
                 new OA\Property(property: 'success', type: 'boolean', default: true),
-                new OA\Property(property: 'data', type: 'array', items: new OA\Items(), example: []),
+                new OA\Property(property: 'data', type: 'array', items: new OA\Items, example: []),
                 new OA\Property(property: 'message', type: 'string', default: 'some message', nullable: true),
             ],
             type: 'object'
@@ -30,7 +30,7 @@ use OpenApi\Attributes as OA;
         new OA\Response(response: 404, description: 'Not Found', content: new OA\JsonContent(
             properties: [
                 new OA\Property(property: 'success', type: 'boolean', default: false),
-                new OA\Property(property: 'data', type: 'array', items: new OA\Items(), example: []),
+                new OA\Property(property: 'data', type: 'array', items: new OA\Items, example: []),
                 new OA\Property(property: 'message', type: 'string', default: 'some message', nullable: true),
             ],
             type: 'object'
@@ -38,7 +38,7 @@ use OpenApi\Attributes as OA;
         new OA\Response(response: 422, description: 'Unprocessable Entity', content: new OA\JsonContent(
             properties: [
                 new OA\Property(property: 'success', type: 'boolean', default: false),
-                new OA\Property(property: 'data', type: 'array', items: new OA\Items(), example: []),
+                new OA\Property(property: 'data', type: 'array', items: new OA\Items, example: []),
                 new OA\Property(property: 'message', type: 'string', default: 'some message', nullable: true),
             ],
             type: 'object'
@@ -55,8 +55,7 @@ final class ReplyToMessageController extends Controller
         int $messageId,
         ReplyToMessageRequest $request,
         ReplyToMessageService $replyToMessageService,
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $replyToMessageService($messageId, $request->string('text')->toString());
 
         return $this->success();

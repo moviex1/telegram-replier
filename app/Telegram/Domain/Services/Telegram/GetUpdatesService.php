@@ -17,8 +17,9 @@ final readonly class GetUpdatesService
     ) {}
 
     /**
-     * @throws InvalidTelegramResponse
      * @return UpdateDTO[]
+     *
+     * @throws InvalidTelegramResponse
      */
     public function __invoke(bool $updateLastId = true): array
     {
@@ -45,7 +46,7 @@ final readonly class GetUpdatesService
     }
 
     /**
-     * @param array<array-key, mixed> $result
+     * @param  array<array-key, mixed>  $result
      * @return UpdateDTO[]
      */
     private function mapUpdates(array $result): array

@@ -10,7 +10,5 @@ final readonly class SendMessageDTO
         public string $text,
         public int $chatId,
         public ?int $replyToId = null,
-    )
-    {
-    }
+    ) {}
 }

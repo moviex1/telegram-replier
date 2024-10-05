@@ -7,12 +7,11 @@ namespace App\Telegram\Domain\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- *
- *
  * @property int $id
  * @property int $message_id
  * @property int $chat_id
  * @property string $text
+ *
  * @method static \Illuminate\Database\Eloquent\Builder|Message newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Message newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Message query()
@@ -20,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Message whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Message whereMessageId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Message whereText($value)
+ *
  * @mixin \Eloquent
  */
 class Message extends Model

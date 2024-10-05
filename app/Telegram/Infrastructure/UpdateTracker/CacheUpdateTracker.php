@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Cache;
 
 final readonly class CacheUpdateTracker implements UpdateTrackerInterface
 {
-
     public function getLastUpdateId(): int
     {
         return Cache::get('updateId') ?? 0;

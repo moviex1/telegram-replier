@@ -12,7 +12,7 @@ final readonly class GetMessagesService
 {
     public function __construct(
         private MessageMapper $messageMapper,
-    ){}
+    ) {}
 
     /** @return MessageDTO[] */
     public function __invoke(int $perPage): array

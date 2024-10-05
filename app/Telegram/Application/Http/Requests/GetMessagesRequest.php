@@ -12,7 +12,7 @@ final class GetMessagesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'perPage' => ['integer', 'min:1','max:100']
+            'perPage' => ['integer', 'min:1', 'max:100'],
         ];
     }
 }

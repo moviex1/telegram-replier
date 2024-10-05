@@ -11,5 +11,5 @@ final readonly class UpdateDTO
         public int $messageId,
         public int $chatId,
         public string $text,
-    ){}
+    ) {}
 }

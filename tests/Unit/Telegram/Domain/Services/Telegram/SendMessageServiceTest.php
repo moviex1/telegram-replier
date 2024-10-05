@@ -26,8 +26,8 @@ class SendMessageServiceTest extends TestCase
                 'chat_id' => 1,
                 'text' => 'test',
                 'reply_parameters' => [
-                    'message_id' => 1
-                ]
+                    'message_id' => 1,
+                ],
             ]);
 
         $sendMessageService = new SendMessageService($telegramClient);

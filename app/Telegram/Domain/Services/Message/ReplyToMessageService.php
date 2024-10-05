@@ -12,7 +12,7 @@ use App\Telegram\Domain\Models\Message;
 final readonly class ReplyToMessageService
 {
     public function __construct(
-    ){}
+    ) {}
 
     /**
      * @throws RecordNotFound

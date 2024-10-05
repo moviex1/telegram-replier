@@ -41,7 +41,7 @@ class ReplyToMessageControllerTest extends TestCase
     public function testUnprocessableEntity(): void
     {
         $response = $this->post(
-            uri: "/api/messages/3/reply",
+            uri: '/api/messages/3/reply',
             headers: [
                 'Accept' => 'application/json',
             ]
@@ -53,7 +53,7 @@ class ReplyToMessageControllerTest extends TestCase
     public function testNotFound(): void
     {
         $response = $this->post(
-            uri: "/api/messages/3/reply",
+            uri: '/api/messages/3/reply',
             data: [
                 'text' => 'test',
             ],
@@ -65,7 +65,7 @@ class ReplyToMessageControllerTest extends TestCase
 
     private function createMessage(): Message
     {
-        $message = new Message();
+        $message = new Message;
 
         $message->message_id = 1;
         $message->chat_id = 1;

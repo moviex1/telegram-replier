@@ -18,7 +18,5 @@ final readonly class MessageDTO
         public string $text,
         #[OA\Property(title: 'id', format: 'integer', default: 1)]
         public ?int $id = null,
-    )
-    {
-    }
+    ) {}
 }

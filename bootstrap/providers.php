@@ -5,5 +5,5 @@ use App\Telegram\Domain\Providers\TelegramServiceProvider;
 
 return [
     AppServiceProvider::class,
-    TelegramServiceProvider::class
+    TelegramServiceProvider::class,
 ];

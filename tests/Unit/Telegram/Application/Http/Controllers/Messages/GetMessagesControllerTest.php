@@ -22,7 +22,7 @@ class GetMessagesControllerTest extends TestCase
         $getMessagesService->expects($this->once())
             ->method('__invoke');
 
-        $controller = new GetMessagesController();
+        $controller = new GetMessagesController;
         $response = $controller(new GetMessagesRequest(query: ['perPage' => 10]), $getMessagesService);
 
         self::assertInstanceOf(JsonResponse::class, $response);

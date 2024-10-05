@@ -23,7 +23,7 @@ use OpenApi\Attributes as OA;
                 new OA\Property(property: 'message', type: 'string', default: 'some message', nullable: true),
             ],
             type: 'object'
-        ))
+        )),
     ],
 )]
 final class GetMessagesController extends Controller
@@ -31,8 +31,7 @@ final class GetMessagesController extends Controller
     public function __invoke(
         GetMessagesRequest $request,
         GetMessagesService $getMessagesService,
-    ): JsonResponse
-    {
+    ): JsonResponse {
         return $this->success(
             data: $getMessagesService($request->integer('perPage', 10))
         );

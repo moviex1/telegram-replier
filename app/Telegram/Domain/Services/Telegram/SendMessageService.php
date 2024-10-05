@@ -12,9 +12,7 @@ final readonly class SendMessageService
 {
     public function __construct(
         private TelegramClient $telegramClient,
-    )
-    {
-    }
+    ) {}
 
     /**
      * @throws InvalidTelegramResponse

@@ -12,9 +12,7 @@ final readonly class ProcessTelegramUpdates
 {
     public function __construct(
         private GetUpdatesService $getUpdatesService,
-    )
-    {
-    }
+    ) {}
 
     /**
      * @throws InvalidTelegramResponse
@@ -24,7 +22,7 @@ final readonly class ProcessTelegramUpdates
     {
         $updates = $this->getUpdatesService->__invoke();
         foreach ($updates as $update) {
-             ProcessUpdate::dispatch($update);
+            ProcessUpdate::dispatch($update);
         }
     }
 }

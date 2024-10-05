@@ -11,7 +11,7 @@ final readonly class StoreMessageService
 {
     public function __construct(
         private MessageMapper $messageMapper,
-    ){}
+    ) {}
 
     public function __invoke(MessageDTO $messageDTO): void
     {
