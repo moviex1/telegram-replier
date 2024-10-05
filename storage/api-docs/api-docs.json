@@ -1,0 +1,221 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Telegram replier",
+        "description": "Telegram replier documentation",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/messages": {
+            "get": {
+                "tags": [
+                    "Message"
+                ],
+                "description": "Get a list of all messages.",
+                "operationId": "9dc68cc926f40bb21eb694d6075732b1",
+                "parameters": [
+                    {
+                        "name": "perPage",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "default": 10,
+                            "example": 10
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Message"
+                                            }
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "some message",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/messages/{messageId}/reply": {
+            "post": {
+                "tags": [
+                    "Message"
+                ],
+                "description": "Reply to a message",
+                "operationId": "b874fc19bdd31ad55d6adafb84d6c6ba",
+                "parameters": [
+                    {
+                        "name": "messageId",
+                        "in": "path",
+                        "schema": {
+                            "type": "integer",
+                            "default": 10,
+                            "example": 10
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/ReplyToMessageRequest"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {},
+                                            "example": []
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "some message",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": false
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {},
+                                            "example": []
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "some message",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": false
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {},
+                                            "example": []
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "default": "some message",
+                                            "nullable": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Message": {
+                "properties": {
+                    "messageId": {
+                        "title": "messageId",
+                        "type": "integer",
+                        "format": "integer",
+                        "example": 1
+                    },
+                    "chatId": {
+                        "title": "chatId",
+                        "type": "integer",
+                        "format": "integer",
+                        "example": 1
+                    },
+                    "text": {
+                        "title": "text",
+                        "type": "string",
+                        "format": "string"
+                    },
+                    "id": {
+                        "title": "id",
+                        "type": "integer",
+                        "format": "integer",
+                        "default": 1,
+                        "nullable": true
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "requestBodies": {
+            "ReplyToMessageRequest": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "required": [
+                                "text"
+                            ],
+                            "properties": {
+                                "text": {
+                                    "type": "string",
+                                    "example": "message text"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Message",
+            "description": "Message"
+        }
+    ]
+}

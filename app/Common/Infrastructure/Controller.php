@@ -5,8 +5,14 @@ declare(strict_types=1);
 namespace App\Common\Infrastructure;
 
 use Illuminate\Http\JsonResponse;
+use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\Response;
 
+#[OA\Info(
+    version: '1.0',
+    description: 'Telegram replier documentation',
+    title: 'Telegram replier',
+)]
 abstract class Controller
 {
     /** @param array<array-key, mixed> $data */
