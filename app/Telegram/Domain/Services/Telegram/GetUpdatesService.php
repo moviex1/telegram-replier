@@ -7,19 +7,25 @@ namespace App\Telegram\Domain\Services\Telegram;
 use App\Telegram\Domain\DTO\Telegram\UpdateDTO;
 use App\Telegram\Domain\Interfaces\UpdateTrackerInterface;
 use App\Telegram\Infrastructure\Telegram\Client\Client as TelegramClient;
+use App\Telegram\Infrastructure\Telegram\Client\ClientFactory;
 use App\Telegram\Infrastructure\Telegram\Client\InvalidTelegramResponse;
+use Illuminate\Http\Client\ConnectionException;
 
 final readonly class GetUpdatesService
 {
+    private TelegramClient $telegramClient;
     public function __construct(
-        private TelegramClient $telegramClient,
+        ClientFactory $telegramClientFactory,
         private UpdateTrackerInterface $updateTracker,
-    ) {}
+    ) {
+        $this->telegramClient = $telegramClientFactory->create(config('telegram.bot-token'));
+    }
 
     /**
-     * @return UpdateDTO[]
-     *
      * @throws InvalidTelegramResponse
+     * @throws ConnectionException
+     *
+     * @return UpdateDTO[]
      */
     public function __invoke(bool $updateLastId = true): array
     {

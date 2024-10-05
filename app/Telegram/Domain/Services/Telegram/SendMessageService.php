@@ -6,16 +6,22 @@ namespace App\Telegram\Domain\Services\Telegram;
 
 use App\Telegram\Domain\DTO\Telegram\SendMessageDTO;
 use App\Telegram\Infrastructure\Telegram\Client\Client as TelegramClient;
+use App\Telegram\Infrastructure\Telegram\Client\ClientFactory;
 use App\Telegram\Infrastructure\Telegram\Client\InvalidTelegramResponse;
+use Illuminate\Http\Client\ConnectionException;
 
 final readonly class SendMessageService
 {
+    private TelegramClient $telegramClient;
     public function __construct(
-        private TelegramClient $telegramClient,
-    ) {}
+        ClientFactory $telegramClientFactory,
+    ) {
+        $this->telegramClient = $telegramClientFactory->create(config('telegram.bot-token'));
+    }
 
     /**
      * @throws InvalidTelegramResponse
+     * @throws ConnectionException
      */
     public function __invoke(SendMessageDTO $sendMessageDTO): void
     {
