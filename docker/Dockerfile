@@ -8,7 +8,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
     install-php-extensions @composer opcache pdo_pgsql pgsql intl pcntl pcov && \
     ln -s composer /usr/local/bin/c
 
-COPY . /app/
-RUN composer install --optimize-autoloader
+COPY composer.json composer.lock /app/
+RUN composer install --optimize-autoloader --no-scripts --no-interaction --no-ansi
 
-CMD php artisan serve --host=0.0.0.0
+COPY . /app

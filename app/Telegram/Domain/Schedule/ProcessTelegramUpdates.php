@@ -7,7 +7,6 @@ namespace App\Telegram\Domain\Schedule;
 use App\Telegram\Domain\Jobs\ProcessUpdate;
 use App\Telegram\Domain\Services\Telegram\GetUpdatesService;
 use App\Telegram\Infrastructure\Telegram\Client\InvalidTelegramResponse;
-use Illuminate\Support\Facades\Bus;
 
 final readonly class ProcessTelegramUpdates
 {

@@ -35,7 +35,7 @@ class ReplyToMessageControllerTest extends TestCase
             'message' => null,
         ]);
 
-        $queue->assertPushedOn('send_message', SendMessage::class);
+        $queue->assertPushedOn('send_messages', SendMessage::class);
     }
 
     public function testUnprocessableEntity(): void

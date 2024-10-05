@@ -1,9 +1,58 @@
 services:
-    php:
-      build:
-        context: .
-        dockerfile: docker/Dockerfile
-      volumes:
-        - .:/app
-      ports:
-        - "8000:8000"
+    migrations:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        volumes:
+            - /app/vendor/
+            - .:/app/
+        command: php artisan migrate
+
+    app:
+        depends_on:
+            - migrations
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        volumes:
+            - /app/vendor/
+            - .:/app
+        ports:
+            - "8000:8000"
+        command: php artisan serve --host=0.0.0.0
+
+    scheduler:
+        depends_on:
+            - migrations
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        volumes:
+            - /app/vendor/
+            - .:/app
+        command: php artisan schedule:work
+        restart: on-failure
+
+    process-updates-queue:
+        depends_on:
+            -  migrations
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        volumes:
+            - /app/vendor/
+            - .:/app
+        command: php artisan queue:work --queue=process_updates
+        restart: on-failure
+
+    send-messages-queue:
+        depends_on:
+            - migrations
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        volumes:
+            - /app/vendor/
+            - .:/app
+        command: php artisan queue:work --queue=send_messages
+        restart: on-failure
