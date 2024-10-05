@@ -17,6 +17,11 @@ another one for web api, and last 3 containers is used to run background tasks
 such as jobs and scheduler
 </p>
 
+<h2>Api Documentation</h2>
+<p>When you successfully started all needed container, you can visit OpenApi docs</p>
+
+``http://localhost:8000/api/documentation``
+
 <h2>How to test code</h2>
 
 <h3>Locally</h3>
