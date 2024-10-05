@@ -7,7 +7,7 @@ namespace App\Telegram\Infrastructure\UpdateTracker;
 use App\Telegram\Domain\Interfaces\UpdateTrackerInterface;
 use Illuminate\Support\Facades\Cache;
 
-final readonly class CacheUpdateTrackerInterface implements UpdateTrackerInterface
+final readonly class CacheUpdateTracker implements UpdateTrackerInterface
 {
 
     public function getLastUpdateId(): int

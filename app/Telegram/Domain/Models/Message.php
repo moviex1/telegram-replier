@@ -25,6 +25,11 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $table = 'messages';
+
+    public $timestamps = false;
+
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'message_id',
         'chat_id',

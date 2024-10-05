@@ -25,6 +25,7 @@ final readonly class MessageMapper
             messageId: $message->message_id,
             chatId: $message->chat_id,
             text: $message->text,
+            id: $message->id,
         );
     }
 

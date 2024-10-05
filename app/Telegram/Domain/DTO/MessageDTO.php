@@ -10,6 +10,7 @@ final readonly class MessageDTO
         public int $messageId,
         public int $chatId,
         public string $text,
+        public ?int $id = null,
     )
     {
     }

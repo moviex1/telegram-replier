@@ -8,7 +8,8 @@ final readonly class UpdateDTO
 {
     public function __construct(
         public int $updateId,
-        public string $messageId,
-        public string $chatId,
+        public int $messageId,
+        public int $chatId,
+        public string $text,
     ){}
 }

@@ -32,10 +32,12 @@ final readonly class GetUpdatesService
         $updates = $this->mapUpdates($response['result']);
 
         if ($updateLastId === true) {
-            /** @var UpdateDTO $lastUpdate */
+            /** @var false|UpdateDTO $lastUpdate */
             $lastUpdate = last($updates);
 
-            $this->updateTracker->setLastUpdateId($lastUpdate->updateId + 1);
+            if ($lastUpdate !== false) {
+                $this->updateTracker->setLastUpdateId($lastUpdate->updateId + 1);
+            }
         }
 
         return $updates;
@@ -51,8 +53,9 @@ final readonly class GetUpdatesService
         foreach ($result as $update) {
             $updates[] = new UpdateDTO(
                 updateId: $update['update_id'],
-                messageId: $update['message']['id'],
+                messageId: $update['message']['message_id'],
                 chatId: $update['message']['chat']['id'],
+                text: $update['message']['text'],
             );
         }
 

@@ -1,5 +1,9 @@
 <?php
 
+use App\Common\Infrastructure\Providers\AppServiceProvider;
+use App\Telegram\Domain\Providers\TelegramServiceProvider;
+
 return [
-    \App\Common\Infrastructure\Providers\AppServiceProvider::class,
+    AppServiceProvider::class,
+    TelegramServiceProvider::class
 ];

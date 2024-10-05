@@ -27,7 +27,7 @@ final readonly class SendMessageService
         ];
 
         if ($sendMessageDTO->replyToId !== null) {
-            $data['reply_markup']['message_id'] = $sendMessageDTO->replyToId;
+            $data['reply_parameters']['message_id'] = $sendMessageDTO->replyToId;
         }
 
         $this->telegramClient->send('sendMessage', $data);
