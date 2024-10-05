@@ -6,19 +6,9 @@ namespace App\Telegram\Domain\Mapper;
 
 use App\Telegram\Domain\DTO\MessageDTO;
 use App\Telegram\Domain\Models\Message;
-use Illuminate\Http\Request;
 
 final readonly class MessageMapper
 {
-    public function fromRequest(Request $request): MessageDTO
-    {
-        return new MessageDTO(
-            messageId: $request->integer('message_id'),
-            chatId: $request->integer('chat_id'),
-            text: $request->string('text')->toString(),
-        );
-    }
-
     public function fromModel(Message $message): MessageDTO
     {
         return new MessageDTO(

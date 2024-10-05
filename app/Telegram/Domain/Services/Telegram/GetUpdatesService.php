@@ -18,6 +18,7 @@ final readonly class GetUpdatesService
 
     /**
      * @throws InvalidTelegramResponse
+     * @return UpdateDTO[]
      */
     public function __invoke(bool $updateLastId = true): array
     {

@@ -8,8 +8,6 @@ use App\Telegram\Domain\DTO\Telegram\SendMessageDTO;
 use App\Telegram\Domain\Exceptions\RecordNotFound;
 use App\Telegram\Domain\Jobs\SendMessage;
 use App\Telegram\Domain\Models\Message;
-use App\Telegram\Domain\Services\Telegram\SendMessageService;
-use App\Telegram\Infrastructure\Telegram\Client\InvalidTelegramResponse;
 
 final readonly class ReplyToMessageService
 {
@@ -18,7 +16,6 @@ final readonly class ReplyToMessageService
 
     /**
      * @throws RecordNotFound
-     * @throws InvalidTelegramResponse
      */
     public function __invoke(int $messageId, string $text): void
     {

@@ -16,7 +16,7 @@ final class SendMessage implements ShouldQueue
 
     public function __construct(private readonly SendMessageDTO $sendMessageDTO)
     {
-        $this->queue = 'send_message';
+        $this->queue = 'send_messages';
     }
 
     /**
