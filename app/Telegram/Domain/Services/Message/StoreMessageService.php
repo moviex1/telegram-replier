@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Telegram\Domain\Services\Message;
 
-use App\Telegram\Domain\DTO\MessageDTO;
-use App\Telegram\Domain\Mapper\MessageMapper;
+use App\Telegram\Domain\DTO\Message\MessageDTO;
+use App\Telegram\Domain\Mappers\MessageMapper;
 
 final readonly class StoreMessageService
 {

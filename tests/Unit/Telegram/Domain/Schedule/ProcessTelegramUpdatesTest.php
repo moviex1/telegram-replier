@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Telegram\Domain\Schedule;
 
+use App\Telegram\Application\Console\Schedule\ProcessTelegramUpdates;
 use App\Telegram\Domain\DTO\Telegram\UpdateDTO;
 use App\Telegram\Domain\Jobs\ProcessUpdate;
-use App\Telegram\Domain\Schedule\ProcessTelegramUpdates;
 use App\Telegram\Domain\Services\Telegram\GetUpdatesService;
 use App\Telegram\Infrastructure\Telegram\Client\InvalidTelegramResponse;
 use Illuminate\Support\Facades\Queue;

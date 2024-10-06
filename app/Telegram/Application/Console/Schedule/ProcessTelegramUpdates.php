@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Telegram\Domain\Schedule;
+namespace App\Telegram\Application\Console\Schedule;
 
 use App\Telegram\Domain\Jobs\ProcessUpdate;
 use App\Telegram\Domain\Services\Telegram\GetUpdatesService;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Telegram\Domain\Jobs;
 
-use App\Telegram\Domain\DTO\MessageDTO;
+use App\Telegram\Domain\DTO\Message\MessageDTO;
 use App\Telegram\Domain\DTO\Telegram\UpdateDTO;
 use App\Telegram\Domain\Services\Message\StoreMessageService;
 use Illuminate\Contracts\Queue\ShouldQueue;

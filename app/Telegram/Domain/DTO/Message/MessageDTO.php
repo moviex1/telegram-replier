@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Telegram\Domain\DTO;
+namespace App\Telegram\Domain\DTO\Message;
 
 use OpenApi\Attributes as OA;
 

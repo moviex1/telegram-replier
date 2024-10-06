@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Telegram\Domain\Mapper;
+namespace App\Telegram\Domain\Mappers;
 
-use App\Telegram\Domain\DTO\MessageDTO;
+use App\Telegram\Domain\DTO\Message\MessageDTO;
 use App\Telegram\Domain\Models\Message;
 
 final readonly class MessageMapper

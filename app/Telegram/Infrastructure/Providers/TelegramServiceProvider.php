@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Telegram\Domain\Providers;
+namespace App\Telegram\Infrastructure\Providers;
 
 use App\Telegram\Domain\Interfaces\UpdateTrackerInterface;
 use App\Telegram\Infrastructure\UpdateTracker\CacheUpdateTracker;

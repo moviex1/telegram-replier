@@ -1,7 +1,7 @@
 <?php
 
 use App\Common\Infrastructure\Providers\AppServiceProvider;
-use App\Telegram\Domain\Providers\TelegramServiceProvider;
+use App\Telegram\Infrastructure\Providers\TelegramServiceProvider;
 
 return [
     AppServiceProvider::class,
